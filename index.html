@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Geek Planet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Geek Planet">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Geek Planet">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Geek Planet">
+  
+    <link rel="alternate" href="/atom.xml" title="Geek Planet" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Geek Planet</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Linux-系统备份" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/18/Linux-系统备份/" class="article-date">
+  <time datetime="2019-01-18T13:18:35.000Z" itemprop="datePublished">2019-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/18/Linux-系统备份/">Linux 系统备份</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h3><ul>
+<li><p>首先成为root用户：<br><code>$ sudo su</code></p>
+</li>
+<li><p>然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：<br><code># cd /</code></p>
+</li>
+<li><p>下面是我用来备份系统的完整命令：<br><code>tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/media/ /</code></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>“tar”当然就是我们备份系统所使用的程序了。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>“zcvfp”是tar的选项，意思是“创建档案文件”、“保持权限”(保留所有东西原来的权限)、“使用gzip来减小文件尺寸”。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>“backup.gz”是我们将要得到的档案文件的文件名。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“/”是我们要备份的目录，在这里是整个文件系统。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>在 档案文件名“backupt.gz”和要备份的目录名“/”之间给出了备份时必须排除在外的目录。有些目录是无用的，例如“<code>/proc</code>”、“<code>/lost+ found</code>”、“<code>/sys</code>”。当然，“<code>backup.tgz</code>”这个档案文件本身必须排除在外，否则你可能会得到一些超出常理的结果。如果不把“<code>/mnt</code>”排 除在外，那么挂载在“<code>/mnt</code>”上的其它分区也会被备份。另外需要确认一下“<code>/media</code>”上没有挂载任何东西(例如光盘、移动硬盘)，如果有挂载东西， 必须把“/media”也排除在外。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>有人可能会建议你把“<code>/dev</code>”目录排除在外，但是我认为这样做很不妥，具体原因这里就不讨论了。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>执行备份命令之前请再确认一下你所键入的命令是不是你想要的。执行备份命令可能需要一段不短的时间。</li>
+</ul>
+</blockquote>
+<ul>
+<li>备份完成后，在文件系统的根目录将生成一个名为“backup.tgz”的文件，它的尺寸有可能非常大。现在你可以把它烧录到DVD上或者放到你认为安全的地方去。</li>
+</ul>
+<blockquote>
+<p>在备份命令结束时你可能会看到这样一个提示：’<code>tar: Error exit delayed from previous errors</code>’，多数情况下你可以忽略它。</p>
+</blockquote>
+<blockquote>
+<p>你还可以用Bzip2来压缩文件，Bzip2比gzip的压缩率高，但是速度慢一些。如果压缩率对你来说很重要，那么你应该使用Bzip2，用“j”代替命令中的“z”，并且给档案文件一个正确的扩展名“bz2”。完整的命令如下<br><code>tar jcvfp backup20170825.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup20170825.tar.bz2 --exclude=/mnt --exclude=/sys --exclude=/media /</code></p>
+</blockquote>
+<h3 id="恢复系统"><a href="#恢复系统" class="headerlink" title="恢复系统"></a>恢复系统</h3><blockquote>
+<p>在进行恢复系统的操作时一定要小心！如果你不清楚自己在做什么，那么你有可能把重要的数据弄丢，请务必小心！</p>
+</blockquote>
+<ul>
+<li>切换到root用户，并把文件“backup.tgz”拷贝到分区的根目录下。</li>
+</ul>
+<blockquote>
+<p>在 Linux中有一件很美妙的事情，就是你可以在一个运行的系统中恢复系统，而不需要用boot-cd来专门引导。当然，如果你的系统已经挂掉不能启动了， 你可以用Live CD来启动，效果是一样的。你还可以用一个命令把Linux系统中的所有文件干掉，当然在这里我不打算给出这个命令！</p>
+</blockquote>
+<ul>
+<li>使用下面的命令来恢复系统：<br><code># tar xvpfz backup.tgz -C /</code></li>
+</ul>
+<blockquote>
+<p>如果你的档案文件是使用Bzip2压缩的，应该用：<br><code># tar xvpfj backup.tar.bz2 -C /</code></p>
+</blockquote>
+<blockquote>
+<p>注意：上面的命令会用档案文件中的文件覆盖分区上的所有文件。</p>
+</blockquote>
+<blockquote>
+<p>执行恢复命令之前请再确认一下你所键入的命令是不是你想要的，执行恢复命令可能需要一段不短的时间。</p>
+</blockquote>
+<ul>
+<li>恢复命令结束时，你的工作还没完成，别忘了重新创建那些在备份时被排除在外的目录：<br><code># mkdir proc</code><br><code># mkdir lost+found</code><br><code># mkdir mnt</code><br><code># mkdir sys</code>等等</li>
+</ul>
+<blockquote>
+<p>当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/18/Linux-系统备份/" data-id="cjr2356je000080e558ob862e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-backup/">Linux, backup</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/18/hello-world/" class="article-date">
+  <time datetime="2019-01-18T13:05:33.067Z" itemprop="datePublished">2019-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/18/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/18/hello-world/" data-id="cjr2356ju000180e59n7hmnil" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-backup/">Linux, backup</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux, backup</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/18/Linux-系统备份/">Linux 系统备份</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 imrdr4<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
