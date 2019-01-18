@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
-<meta name="keywords" content="Linux, backup">
+  <meta name="description" content="Ubuntu使用Grub2来引导系统启动，配置文件: /boot/grub/grub.cfg，如果你有这些需求：   双系统，将Windows设为默认启动项。 看见Memory Test不爽。 想把启动想弄的个性点。 其实还可以改颜色，弄漂亮点。  那就来修改启动配置文件吧：  打开终端 输入 sudo gedit /boot/grub/grub.cfg接下来将会在Gedit中打开配置文件。首先">
+<meta name="keywords" content="Linux, Ubuntu, grub">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 系统备份">
-<meta property="og:url" content="http://yoursite.com/2019/01/18/Linux-系统备份/index.html">
+<meta property="og:title" content="Linux Ubuntu grub.cfg.md">
+<meta property="og:url" content="http://yoursite.com/2019/01/18/Linux-Ubuntu-grub-cfg-md/index.html">
 <meta property="og:site_name" content="Geek&#39;s Planet">
-<meta property="og:description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
+<meta property="og:description" content="Ubuntu使用Grub2来引导系统启动，配置文件: /boot/grub/grub.cfg，如果你有这些需求：   双系统，将Windows设为默认启动项。 看见Memory Test不爽。 想把启动想弄的个性点。 其实还可以改颜色，弄漂亮点。  那就来修改启动配置文件吧：  打开终端 输入 sudo gedit /boot/grub/grub.cfg接下来将会在Gedit中打开配置文件。首先">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-18T13:19:47.239Z">
+<meta property="og:updated_time" content="2019-01-18T15:14:49.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 系统备份">
-<meta name="twitter:description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
+<meta name="twitter:title" content="Linux Ubuntu grub.cfg.md">
+<meta name="twitter:description" content="Ubuntu使用Grub2来引导系统启动，配置文件: /boot/grub/grub.cfg，如果你有这些需求：   双系统，将Windows设为默认启动项。 看见Memory Test不爽。 想把启动想弄的个性点。 其实还可以改颜色，弄漂亮点。  那就来修改启动配置文件吧：  打开终端 输入 sudo gedit /boot/grub/grub.cfg接下来将会在Gedit中打开配置文件。首先">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/18/Linux-系统备份/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/18/Linux-Ubuntu-grub-cfg-md/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Linux 系统备份 | Geek's Planet</title>
+  <title>Linux Ubuntu grub.cfg.md | Geek's Planet</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/Linux-系统备份/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/Linux-Ubuntu-grub-cfg-md/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="imrdr4@126.com">
@@ -310,7 +310,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux 系统备份
+          <h2 class="post-title" itemprop="name headline">Linux Ubuntu grub.cfg.md
 
               
             
@@ -336,7 +336,7 @@
                 
               
 
-              <time title="创建时间：2019-01-18 21:18:35 / 修改时间：21:19:47" itemprop="dateCreated datePublished" datetime="2019-01-18T21:18:35+08:00">2019-01-18</time>
+              <time title="创建时间：2019-01-18 23:03:38 / 修改时间：23:14:49" itemprop="dateCreated datePublished" datetime="2019-01-18T23:03:38+08:00">2019-01-18</time>
             
 
             
@@ -375,83 +375,55 @@
       
 
       
-        <h3 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h3><ul>
-<li><p>首先成为root用户：<br><code>$ sudo su</code></p>
+        <blockquote>
+<p>Ubuntu使用Grub2来引导系统启动，配置文件: /boot/grub/grub.cfg，如果你有这些需求：</p>
+</blockquote>
+<ul>
+<li>双系统，将Windows设为默认启动项。</li>
+<li>看见Memory Test不爽。</li>
+<li>想把启动想弄的个性点。</li>
+<li>其实还可以改颜色，弄漂亮点。</li>
+</ul>
+<p>那就来修改启动配置文件吧：</p>
+<ul>
+<li>打开终端 输入 <code>sudo gedit /boot/grub/grub.cfg</code><br>接下来将会在Gedit中打开配置文件。<br>首先请仔细阅读 #后的说明</li>
+</ul>
+<blockquote>
+<p>其中包含以下几大块：</p>
+</blockquote>
+<ul>
+<li><p>BEGIN /etc/grub.d/00_header ###</p>
+<blockquote>
+<p>其中包含默认启动项  等待时间<br>(找 set default=”0”  这句，然后从0开始，数一下你想默认启动的启动项是第几个，将数字替换掉“0”)<br>(找 set timeout=10  这句，也就是你的默认等待时间是10秒，改成你想要的时间就行了)<br>END /etc/grub.d/00_header ###</p>
+</blockquote>
 </li>
-<li><p>然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：<br><code># cd /</code></p>
+<li><p>BEGIN /etc/grub.d/05_debian_theme ###</p>
+<blockquote>
+<p>Grub的样式，算是主题吧<br>(总共就两句，分别是菜单颜色和背景颜色，改的话也很简单，就是  前景色/背景色：<br>set menu_color_normal=white/black<br>set menu_color_highlight=black/light-gray<br>)<br>END /etc/grub.d/05_debian_theme ###</p>
+</blockquote>
 </li>
-<li><p>下面是我用来备份系统的完整命令：<br><code>tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/media/ /</code></p>
+<li><p>BEGIN /etc/grub.d/10_linux ###</p>
+<blockquote>
+<p>你的Ubuntu了，没有可以更改的，别动它<br>(如果想改改启动项的名字的话改改单引号里面的字母，只能改单引号里面的！)<br>END /etc/grub.d/10_linux ###</p>
+</blockquote>
+</li>
+<li><p>BEGIN /etc/grub.d/20_linux_xen</p>
+<blockquote>
+<p>我的这里面没东西，不知到做什么的<br> END /etc/grub.d/20_linux_xen ###</p>
+</blockquote>
+</li>
+<li><p>BEGIN /etc/grub.d/20_memtest86+ ###</p>
+<blockquote>
+<p> Memory Test<br>(不想要的话把每句前加个#好给注释掉)<br>END /etc/grub.d/20_memtest86+ ###</p>
+</blockquote>
+</li>
+<li><p>BEGIN /etc/grub.d/30_os-prober ###</p>
+<blockquote>
+<p>其他操作系统，看你有几个，里面就有几个<br>(也就能改个系统启动项显示的名字了，改双引号里面的，只能改双引号里面的！)<br>END /etc/grub.d/30_os-prober ###</p>
+</blockquote>
 </li>
 </ul>
-<blockquote>
-<ul>
-<li>“tar”当然就是我们备份系统所使用的程序了。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>“zcvfp”是tar的选项，意思是“创建档案文件”、“保持权限”(保留所有东西原来的权限)、“使用gzip来减小文件尺寸”。</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>“backup.gz”是我们将要得到的档案文件的文件名。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>“/”是我们要备份的目录，在这里是整个文件系统。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>在 档案文件名“backupt.gz”和要备份的目录名“/”之间给出了备份时必须排除在外的目录。有些目录是无用的，例如“<code>/proc</code>”、“<code>/lost+ found</code>”、“<code>/sys</code>”。当然，“<code>backup.tgz</code>”这个档案文件本身必须排除在外，否则你可能会得到一些超出常理的结果。如果不把“<code>/mnt</code>”排 除在外，那么挂载在“<code>/mnt</code>”上的其它分区也会被备份。另外需要确认一下“<code>/media</code>”上没有挂载任何东西(例如光盘、移动硬盘)，如果有挂载东西， 必须把“/media”也排除在外。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>有人可能会建议你把“<code>/dev</code>”目录排除在外，但是我认为这样做很不妥，具体原因这里就不讨论了。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>执行备份命令之前请再确认一下你所键入的命令是不是你想要的。执行备份命令可能需要一段不短的时间。</li>
-</ul>
-</blockquote>
-<ul>
-<li>备份完成后，在文件系统的根目录将生成一个名为“backup.tgz”的文件，它的尺寸有可能非常大。现在你可以把它烧录到DVD上或者放到你认为安全的地方去。</li>
-</ul>
-<blockquote>
-<p>在备份命令结束时你可能会看到这样一个提示：’<code>tar: Error exit delayed from previous errors</code>’，多数情况下你可以忽略它。</p>
-</blockquote>
-<blockquote>
-<p>你还可以用Bzip2来压缩文件，Bzip2比gzip的压缩率高，但是速度慢一些。如果压缩率对你来说很重要，那么你应该使用Bzip2，用“j”代替命令中的“z”，并且给档案文件一个正确的扩展名“bz2”。完整的命令如下<br><code>tar jcvfp backup20170825.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup20170825.tar.bz2 --exclude=/mnt --exclude=/sys --exclude=/media /</code></p>
-</blockquote>
-<h3 id="恢复系统"><a href="#恢复系统" class="headerlink" title="恢复系统"></a>恢复系统</h3><blockquote>
-<p>在进行恢复系统的操作时一定要小心！如果你不清楚自己在做什么，那么你有可能把重要的数据弄丢，请务必小心！</p>
-</blockquote>
-<ul>
-<li>切换到root用户，并把文件“backup.tgz”拷贝到分区的根目录下。</li>
-</ul>
-<blockquote>
-<p>在 Linux中有一件很美妙的事情，就是你可以在一个运行的系统中恢复系统，而不需要用boot-cd来专门引导。当然，如果你的系统已经挂掉不能启动了， 你可以用Live CD来启动，效果是一样的。你还可以用一个命令把Linux系统中的所有文件干掉，当然在这里我不打算给出这个命令！</p>
-</blockquote>
-<ul>
-<li>使用下面的命令来恢复系统：<br><code># tar xvpfz backup.tgz -C /</code></li>
-</ul>
-<blockquote>
-<p>如果你的档案文件是使用Bzip2压缩的，应该用：<br><code># tar xvpfj backup.tar.bz2 -C /</code></p>
-</blockquote>
-<blockquote>
-<p>注意：上面的命令会用档案文件中的文件覆盖分区上的所有文件。</p>
-</blockquote>
-<blockquote>
-<p>执行恢复命令之前请再确认一下你所键入的命令是不是你想要的，执行恢复命令可能需要一段不短的时间。</p>
-</blockquote>
-<ul>
-<li>恢复命令结束时，你的工作还没完成，别忘了重新创建那些在备份时被排除在外的目录：<br><code># mkdir proc</code><br><code># mkdir lost+found</code><br><code># mkdir mnt</code><br><code># mkdir sys</code>等等</li>
-</ul>
-<blockquote>
-<p>当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了！</p>
-</blockquote>
+<p>保存修改就行了</p>
 
       
     </div>
@@ -475,7 +447,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux-backup/" rel="tag"># Linux, backup</a>
+            <a href="/tags/Linux-Ubuntu-grub/" rel="tag"># Linux, Ubuntu, grub</a>
           
         </div>
       
@@ -488,14 +460,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/18/Linux-系统备份/" rel="next" title="Linux 系统备份">
+                <i class="fa fa-chevron-left"></i> Linux 系统备份
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/18/Linux-Ubuntu-grub-cfg-md/" rel="prev" title="Linux Ubuntu grub.cfg.md">
-                Linux Ubuntu grub.cfg.md <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/18/Install-Anaconda/" rel="prev" title="Install Anaconda">
+                Install Anaconda <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,17 +517,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -614,23 +581,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#备份系统"><span class="nav-number">1.</span> <span class="nav-text">备份系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恢复系统"><span class="nav-number">2.</span> <span class="nav-text">恢复系统</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

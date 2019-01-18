@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
-<meta name="keywords" content="Linux, backup">
+  <meta name="description" content="12345678910111213141516171819# 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）conda create --name python34 python=3.4# 安装好后，使用activate激活某个环境activate python34 # for Windowssource a">
+<meta name="keywords" content="Python, Anaconda, Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 系统备份">
-<meta property="og:url" content="http://yoursite.com/2019/01/18/Linux-系统备份/index.html">
+<meta property="og:title" content="Install Anaconda">
+<meta property="og:url" content="http://yoursite.com/2019/01/18/Install-Anaconda/index.html">
 <meta property="og:site_name" content="Geek&#39;s Planet">
-<meta property="og:description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
+<meta property="og:description" content="12345678910111213141516171819# 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）conda create --name python34 python=3.4# 安装好后，使用activate激活某个环境activate python34 # for Windowssource a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-18T13:19:47.239Z">
+<meta property="og:updated_time" content="2019-01-18T15:19:11.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 系统备份">
-<meta name="twitter:description" content="备份系统 首先成为root用户：$ sudo su  然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：# cd /  下面是我用来备份系统的完整命令：tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exc">
+<meta name="twitter:title" content="Install Anaconda">
+<meta name="twitter:description" content="12345678910111213141516171819# 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）conda create --name python34 python=3.4# 安装好后，使用activate激活某个环境activate python34 # for Windowssource a">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/18/Linux-系统备份/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/18/Install-Anaconda/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Linux 系统备份 | Geek's Planet</title>
+  <title>Install Anaconda | Geek's Planet</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/Linux-系统备份/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/Install-Anaconda/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="imrdr4@126.com">
@@ -310,7 +310,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux 系统备份
+          <h2 class="post-title" itemprop="name headline">Install Anaconda
 
               
             
@@ -336,7 +336,7 @@
                 
               
 
-              <time title="创建时间：2019-01-18 21:18:35 / 修改时间：21:19:47" itemprop="dateCreated datePublished" datetime="2019-01-18T21:18:35+08:00">2019-01-18</time>
+              <time title="创建时间：2019-01-18 23:12:38 / 修改时间：23:19:11" itemprop="dateCreated datePublished" datetime="2019-01-18T23:12:38+08:00">2019-01-18</time>
             
 
             
@@ -375,83 +375,12 @@
       
 
       
-        <h3 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h3><ul>
-<li><p>首先成为root用户：<br><code>$ sudo su</code></p>
-</li>
-<li><p>然后进入文件系统的根目录(当然，如果你不想备份整个文件系统，你也可以进入你想要备份的目录，包括远程目录或者移动硬盘上的目录)：<br><code># cd /</code></p>
-</li>
-<li><p>下面是我用来备份系统的完整命令：<br><code>tar zcvfp backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/media/ /</code></p>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>“tar”当然就是我们备份系统所使用的程序了。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>“zcvfp”是tar的选项，意思是“创建档案文件”、“保持权限”(保留所有东西原来的权限)、“使用gzip来减小文件尺寸”。</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>“backup.gz”是我们将要得到的档案文件的文件名。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>“/”是我们要备份的目录，在这里是整个文件系统。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>在 档案文件名“backupt.gz”和要备份的目录名“/”之间给出了备份时必须排除在外的目录。有些目录是无用的，例如“<code>/proc</code>”、“<code>/lost+ found</code>”、“<code>/sys</code>”。当然，“<code>backup.tgz</code>”这个档案文件本身必须排除在外，否则你可能会得到一些超出常理的结果。如果不把“<code>/mnt</code>”排 除在外，那么挂载在“<code>/mnt</code>”上的其它分区也会被备份。另外需要确认一下“<code>/media</code>”上没有挂载任何东西(例如光盘、移动硬盘)，如果有挂载东西， 必须把“/media”也排除在外。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>有人可能会建议你把“<code>/dev</code>”目录排除在外，但是我认为这样做很不妥，具体原因这里就不讨论了。</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>执行备份命令之前请再确认一下你所键入的命令是不是你想要的。执行备份命令可能需要一段不短的时间。</li>
-</ul>
-</blockquote>
-<ul>
-<li>备份完成后，在文件系统的根目录将生成一个名为“backup.tgz”的文件，它的尺寸有可能非常大。现在你可以把它烧录到DVD上或者放到你认为安全的地方去。</li>
-</ul>
-<blockquote>
-<p>在备份命令结束时你可能会看到这样一个提示：’<code>tar: Error exit delayed from previous errors</code>’，多数情况下你可以忽略它。</p>
-</blockquote>
-<blockquote>
-<p>你还可以用Bzip2来压缩文件，Bzip2比gzip的压缩率高，但是速度慢一些。如果压缩率对你来说很重要，那么你应该使用Bzip2，用“j”代替命令中的“z”，并且给档案文件一个正确的扩展名“bz2”。完整的命令如下<br><code>tar jcvfp backup20170825.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup20170825.tar.bz2 --exclude=/mnt --exclude=/sys --exclude=/media /</code></p>
-</blockquote>
-<h3 id="恢复系统"><a href="#恢复系统" class="headerlink" title="恢复系统"></a>恢复系统</h3><blockquote>
-<p>在进行恢复系统的操作时一定要小心！如果你不清楚自己在做什么，那么你有可能把重要的数据弄丢，请务必小心！</p>
-</blockquote>
-<ul>
-<li>切换到root用户，并把文件“backup.tgz”拷贝到分区的根目录下。</li>
-</ul>
-<blockquote>
-<p>在 Linux中有一件很美妙的事情，就是你可以在一个运行的系统中恢复系统，而不需要用boot-cd来专门引导。当然，如果你的系统已经挂掉不能启动了， 你可以用Live CD来启动，效果是一样的。你还可以用一个命令把Linux系统中的所有文件干掉，当然在这里我不打算给出这个命令！</p>
-</blockquote>
-<ul>
-<li>使用下面的命令来恢复系统：<br><code># tar xvpfz backup.tgz -C /</code></li>
-</ul>
-<blockquote>
-<p>如果你的档案文件是使用Bzip2压缩的，应该用：<br><code># tar xvpfj backup.tar.bz2 -C /</code></p>
-</blockquote>
-<blockquote>
-<p>注意：上面的命令会用档案文件中的文件覆盖分区上的所有文件。</p>
-</blockquote>
-<blockquote>
-<p>执行恢复命令之前请再确认一下你所键入的命令是不是你想要的，执行恢复命令可能需要一段不短的时间。</p>
-</blockquote>
-<ul>
-<li>恢复命令结束时，你的工作还没完成，别忘了重新创建那些在备份时被排除在外的目录：<br><code># mkdir proc</code><br><code># mkdir lost+found</code><br><code># mkdir mnt</code><br><code># mkdir sys</code>等等</li>
-</ul>
-<blockquote>
-<p>当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了！</p>
-</blockquote>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）</span><br><span class="line"></span><br><span class="line">conda create --name python34 python=3.4</span><br><span class="line"></span><br><span class="line"># 安装好后，使用activate激活某个环境</span><br><span class="line">activate python34 # for Windows</span><br><span class="line">source activate python34 # for Linux &amp; Mac</span><br><span class="line"># 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH</span><br><span class="line"></span><br><span class="line"># 此时，再次输入</span><br><span class="line">python --version</span><br><span class="line"># 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境</span><br><span class="line"></span><br><span class="line"># 如果想返回默认的python 2.7环境，运行</span><br><span class="line">deactivate python34 # for Windows</span><br><span class="line">source deactivate python34 # for Linux &amp; Mac</span><br><span class="line"></span><br><span class="line"># 删除一个已有的环境</span><br><span class="line">conda remove --name python34 --all</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"></span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 安装scipy</span><br><span class="line">conda install scipy</span><br><span class="line"># conda会从从远程搜索scipy的相关信息和依赖项目，对于python 3.4，conda会同时安装numpy和mkl（运算加速的库）</span><br><span class="line"></span><br><span class="line"># 查看已经安装的packages</span><br><span class="line">conda list</span><br><span class="line"># 最新版的conda是从site-packages文件夹中搜索已经安装的包，不依赖于pip，因此可以显示出通过各种方式安装的包</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"></span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"></span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy</span><br><span class="line"># 如果不用-n指定环境名称，则被安装在当前活跃环境</span><br><span class="line"># 也可以通过-c指定通过某个channel安装</span><br><span class="line"></span><br><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"></span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 更新conda，保持conda最新</span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"># 更新anaconda</span><br><span class="line">conda update anaconda</span><br><span class="line"></span><br><span class="line"># 更新python</span><br><span class="line">conda update python</span><br><span class="line"># 假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 在当前环境下安装anaconda包集合</span><br><span class="line">conda install anaconda</span><br><span class="line"></span><br><span class="line"># 结合创建环境的命令，以上操作可以合并为</span><br><span class="line">conda create -n python34 python=3.4 anaconda</span><br><span class="line"># 也可以不用全部安装，根据需求安装自己需要的package即可</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -475,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux-backup/" rel="tag"># Linux, backup</a>
+            <a href="/tags/Python-Anaconda-Linux/" rel="tag"># Python, Anaconda, Linux</a>
           
         </div>
       
@@ -488,14 +417,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/18/Linux-Ubuntu-grub-cfg-md/" rel="next" title="Linux Ubuntu grub.cfg.md">
+                <i class="fa fa-chevron-left"></i> Linux Ubuntu grub.cfg.md
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/18/Linux-Ubuntu-grub-cfg-md/" rel="prev" title="Linux Ubuntu grub.cfg.md">
-                Linux Ubuntu grub.cfg.md <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/18/U-盘制作-Win7-系统安装盘/" rel="prev" title="U 盘制作 Win7 系统安装盘">
+                U 盘制作 Win7 系统安装盘 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,17 +474,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -614,23 +538,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#备份系统"><span class="nav-number">1.</span> <span class="nav-text">备份系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恢复系统"><span class="nav-number">2.</span> <span class="nav-text">恢复系统</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
